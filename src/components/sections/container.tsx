@@ -17,11 +17,11 @@ const Container = () => {
       <SectionContent>
         <Table />
       </SectionContent>
-      <SectionContent>
+      {/* <SectionContent>
         <Card />
         <Card />
         <Card />
-      </SectionContent>
+      </SectionContent> */}
     </Contenedor>
   );
 };
