@@ -19,7 +19,7 @@ const ItemStyled = styled.li`
   font-size: 14px;
 `;
 
-const BoxStyled = styled.div`
+export const BoxStyled = styled.div`
   border: 1px solid;
   width: 15px;
   height: 15px;
