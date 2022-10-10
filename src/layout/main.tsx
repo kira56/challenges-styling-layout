@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Container from "../components/sections/container";
-import Menu from "../components/sections/menu";
-import Sidebar from "../components/sections/sidebar";
+import Container from "../components/sections/partials/container";
+import Menu from "../components/sections/partials/menu";
+import Sidebar from "../components/sections/partials/sidebar";
 
 const Main = () => {
   return (
