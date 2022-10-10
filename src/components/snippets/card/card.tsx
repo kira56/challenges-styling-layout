@@ -2,35 +2,56 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import Circle from "../circle";
+import BoxMedia from "../box/box-media";
+import { ContainerProps } from "../../sections/partials/container";
+import Circles from "../circles";
 
-const Card = () => {
+interface ISize {
+  wide: string;
+}
+
+interface ICardProps extends ContainerProps {
+  size?: string;
+  shadow?: boolean;
+  menu?: boolean;
+}
+
+const Card = ({
+  title,
+  created,
+  circles,
+  shadow = true,
+  menu = true,
+  size = "lg",
+}: ICardProps) => {
   return (
-    <CardStyled>
+    <CardStyled wide={size}>
       <CardMedia>
-        <BoxCardMedia />
-        <Circle />
+        <BoxMedia shadow={shadow} />
+        <Circles items={circles!} />
       </CardMedia>
       <CardContent>
-        <CardTitle>Add Project</CardTitle>
-        <CardDate>Created: 20.02.2022</CardDate>
+        <CardTitle>{title}</CardTitle>
+        <CardDate>Created: {created}</CardDate>
       </CardContent>
-      <IconOptionStyled>
-        <FontAwesomeIcon icon={faEllipsisV} />
-      </IconOptionStyled>
+      {menu && (
+        <IconOptionStyled>
+          <FontAwesomeIcon icon={faEllipsisV} />
+        </IconOptionStyled>
+      )}
     </CardStyled>
   );
 };
 
 export default Card;
 
-const CardStyled = styled.article`
+const CardStyled = styled.article<ISize>`
   position: relative;
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 4px 16px rgba(58, 58, 58, 0.07);
   border-radius: 12px;
-  padding: 20px 17px;
+  padding: ${(props) => (props.wide === "lg" ? "25px 20px" : "9px 12px")};
   text-align: start;
 `;
 
@@ -39,28 +60,17 @@ const CardMedia = styled.div`
   align-items: center;
 `;
 
-const CardContent = styled.div`
-  /* padding-top: 20px; */
-`;
+const CardContent = styled.div``;
 
 const CardTitle = styled.h3`
   font-size: 16px;
   font-weight: 400;
+  line-height: 35px;
 `;
 
 const CardDate = styled.p`
   font-size: 10px;
   color: #858a9d;
-`;
-
-const BoxCardMedia = styled.div`
-  width: 30px;
-  height: 26px;
-  margin-left: 5px;
-  background-color: #ff9f00;
-  box-shadow: -5px 5px 0px 1px rgba(255, 208, 110, 0.75);
-  -webkit-box-shadow: -5px 5px 0px 1px rgba(255, 208, 110, 0.75);
-  -moz-box-shadow: -5px 5px 0px 1px rgba(255, 208, 110, 0.75);
 `;
 
 const IconOptionStyled = styled.div`
