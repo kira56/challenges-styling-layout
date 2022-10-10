@@ -2,25 +2,34 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+import BoxList from "../../snippets/box/box-list";
+interface TableRowProps {
+  title: string;
+  background?: string;
+  members: number;
+  date: string;
+}
 
-const TableRow = () => {
+const TableRow = ({ title, background, members, date }: TableRowProps) => {
   return (
     <TableRowContent>
-      <TableRowItem>
-        <RowBox /> Travel Landing Page
-      </TableRowItem>
-      <TableRowItem>5 members</TableRowItem>
-      <TableRowItem>Mar 8.2022</TableRowItem>
-      <TableRowItem>
-        <FontAwesomeIcon icon={faEllipsisH} />
-      </TableRowItem>
+      <tr>
+        <TableRowItem>
+          <BoxList bg={background} /> {title}
+        </TableRowItem>
+        <TableRowItem>{members} members</TableRowItem>
+        <TableRowItem>{date}</TableRowItem>
+        <TableRowItem>
+          <FontAwesomeIcon icon={faEllipsisH} />
+        </TableRowItem>
+      </tr>
     </TableRowContent>
   );
 };
 
 export default TableRow;
 
-const TableRowContent = styled.tr``;
+const TableRowContent = styled.tbody``;
 
 const TableRowItem = styled.td`
   text-align: start;
@@ -44,12 +53,4 @@ const TableRowItem = styled.td`
     border-top-right-radius: 10px;
     padding-right: 17px;
   }
-`;
-
-const RowBox = styled.div`
-  width: 21px;
-  height: 21px;
-  border-radius: 5px;
-  background-color: #4ac29d;
-  margin-right: 10px;
 `;
