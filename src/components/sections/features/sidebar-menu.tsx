@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { BoxStyled } from "../snippets/menu-item";
+import Icon from "../../snippets/icons/icon";
 
 const SidebarMenu = () => {
   return (
     <SidebarNav>
       <SidebarNavList>
         <SidebarNavItem>
-          <BoxStyled />
-          <BoxStyled />
+          <Icon bg={true} />
+          <Icon bg={true} />
         </SidebarNavItem>
         <SidebarNavItem>
           Name <BoxUser />
