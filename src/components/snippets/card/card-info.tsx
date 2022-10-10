@@ -15,7 +15,7 @@ const CardInfo = () => {
         </span>
       </CardContent>
       <CardFooter>
-        <Button />
+        <Button text="Upgrade Account!" />
       </CardFooter>
     </CardInfoStyled>
   );
@@ -31,7 +31,7 @@ const CardInfoStyled = styled.div`
 
 const CardMedia = styled.div``;
 const CardContent = styled.div`
-  padding: 20px 0;
+  padding: 15px 0;
 `;
 const CardFooter = styled.div``;
 
